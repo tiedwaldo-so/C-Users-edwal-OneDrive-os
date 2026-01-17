@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Ícones</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        button { padding: 10px 20px; margin: 10px; background: #1976D2; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Ícones SVG para PNG</h1>
+    <p>Clique nos botões para baixar os ícones PNG:</p>
+    
+    <div>
+        <canvas id="canvas192" width="192" height="192"></canvas>
+        <button onclick="downloadCanvas('canvas192', 'icon-192.png')">Download icon-192.png</button>
+    </div>
+    
+    <div>
+        <canvas id="canvas512" width="512" height="512"></canvas>
+        <button onclick="downloadCanvas('canvas512', 'icon-512.png')">Download icon-512.png</button>
+    </div>
+    
+    <div>
+        <canvas id="canvasLogo" width="400" height="150"></canvas>
+        <button onclick="downloadCanvas('canvasLogo', 'logo.png')">Download logo.png</button>
+    </div>
+
+    <script>
+        function drawIcon192() {
+            const canvas = document.getElementById('canvas192');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.fillStyle = '#1976D2';
+            ctx.fillRect(0, 0, 192, 192);
+            
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 80px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('ES', 96, 80);
+            
+            ctx.font = '20px Arial';
+            ctx.fillText('Elfon Service', 96, 140);
+        }
+        
+        function drawIcon512() {
+            const canvas = document.getElementById('canvas512');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.fillStyle = '#1976D2';
+            ctx.fillRect(0, 0, 512, 512);
+            
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 200px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('ES', 256, 220);
+            
+            ctx.font = '50px Arial';
+            ctx.fillText('Elfon Service', 256, 360);
+        }
+        
+        function drawLogo() {
+            const canvas = document.getElementById('canvasLogo');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.fillStyle = '#1976D2';
+            ctx.roundRect(0, 0, 400, 150, 10);
+            ctx.fill();
+            
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 60px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('ELFON', 200, 60);
+            
+            ctx.fillStyle = '#BBDEFB';
+            ctx.font = '30px Arial';
+            ctx.fillText('Service', 200, 105);
+        }
+        
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const url = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = url;
+            link.click();
+        }
+        
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                if (w < 2 * r) r = w / 2;
+                if (h < 2 * r) r = h / 2;
+                this.beginPath();
+                this.moveTo(x + r, y);
+                this.arcTo(x + w, y, x + w, y + h, r);
+                this.arcTo(x + w, y + h, x, y + h, r);
+                this.arcTo(x, y + h, x, y, r);
+                this.arcTo(x, y, x + w, y, r);
+                this.closePath();
+                return this;
+            };
+        }
+        
+        drawIcon192();
+        drawIcon512();
+        drawLogo();
+    </script>
+</body>
+</html>

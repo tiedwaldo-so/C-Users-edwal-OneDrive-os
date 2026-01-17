@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Uso - Elfon Service OS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1976D2;
+            text-align: center;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #1976D2;
+            padding-bottom: 10px;
+        }
+        .example {
+            background: #E3F2FD;
+            padding: 15px;
+            border-left: 4px solid #1976D2;
+            margin: 10px 0;
+        }
+        .success {
+            background: #C8E6C9;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            margin: 10px 0;
+        }
+        .error {
+            background: #FFCDD2;
+            padding: 10px;
+            border-left: 4px solid #F44336;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #1976D2;
+            color: white;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .step {
+            background: #FFF9C4;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #FFC107;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Guia de Uso - Sistema de Ordem de Serviço</h1>
+    <h2>Elfon Service</h2>
+
+    <div class="card">
+        <h2>🔢 Como Preencher Valores Monetários</h2>
+        
+        <p><strong>IMPORTANTE:</strong> O sistema usa uma máscara automática para valores em Reais (R$).</p>
+        
+        <div class="step">
+            <strong>Regra:</strong> Digite os números SEM pontos, SEM vírgulas, SEM o símbolo R$
+        </div>
+
+        <h3>Exemplos Práticos:</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Valor Desejado</th>
+                    <th>O que Digitar</th>
+                    <th>Resultado na Tela</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R$ 10,00</td>
+                    <td><code>1000</code></td>
+                    <td>10,00</td>
+                </tr>
+                <tr>
+                    <td>R$ 50,00</td>
+                    <td><code>5000</code></td>
+                    <td>50,00</td>
+                </tr>
+                <tr>
+                    <td>R$ 100,00</td>
+                    <td><code>10000</code></td>
+                    <td>100,00</td>
+                </tr>
+                <tr>
+                    <td>R$ 15,50</td>
+                    <td><code>1550</code></td>
+                    <td>15,50</td>
+                </tr>
+                <tr>
+                    <td>R$ 2,75</td>
+                    <td><code>275</code></td>
+                    <td>2,75</td>
+                </tr>
+                <tr>
+                    <td>R$ 0,50</td>
+                    <td><code>50</code></td>
+                    <td>0,50</td>
+                </tr>
+                <tr>
+                    <td>R$ 1.500,00</td>
+                    <td><code>150000</code></td>
+                    <td>1500,00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="success">
+            ✅ <strong>Correto:</strong> Digite <code>5000</code> para R$ 50,00
+        </div>
+        
+        <div class="error">
+            ❌ <strong>Errado:</strong> NÃO digite <code>50,00</code> ou <code>50.00</code> ou <code>R$ 50</code>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📊 Como Funciona o Cálculo Automático</h2>
+        
+        <h3>1️⃣ Passo a Passo:</h3>
+        
+        <div class="step">
+            <strong>Passo 1:</strong> Preencha a <strong>Quantidade</strong> (ex: 2)
+        </div>
+        
+        <div class="step">
+            <strong>Passo 2:</strong> Preencha o <strong>Valor Unitário</strong> (ex: digite <code>5000</code> para R$ 50,00)
+        </div>
+        
+        <div class="step">
+            <strong>Passo 3:</strong> O <strong>Valor Total da Linha</strong> é calculado automaticamente
+            <br>Exemplo: 2 × R$ 50,00 = <strong>R$ 100,00</strong>
+        </div>
+        
+        <div class="step">
+            <strong>Passo 4:</strong> O <strong>Valor TOTAL GERAL</strong> (embaixo da tabela) soma todas as linhas automaticamente
+        </div>
+
+        <h3>2️⃣ Exemplo Completo:</h3>
+        
+        <div class="example">
+            <strong>Linha 1:</strong> Quantidade = 2 | Valor Unit. = <code>5000</code> (R$ 50,00)
+            <br>➡️ <strong>Valor Total:</strong> R$ 100,00
+            <br><br>
+            <strong>Linha 2:</strong> Quantidade = 3 | Valor Unit. = <code>10000</code> (R$ 100,00)
+            <br>➡️ <strong>Valor Total:</strong> R$ 300,00
+            <br><br>
+            <strong>Linha 3:</strong> Quantidade = 1 | Valor Unit. = <code>1550</code> (R$ 15,50)
+            <br>➡️ <strong>Valor Total:</strong> R$ 15,50
+            <br><br>
+            <hr>
+            <strong style="color: green; font-size: 18px;">VALOR TOTAL GERAL: R$ 415,50</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📷 Como Adicionar Fotos</h2>
+        
+        <div class="step">
+            <strong>1.</strong> Clique no botão <strong>"📷 Adicionar Foto"</strong>
+        </div>
+        
+        <div class="step">
+            <strong>2.</strong> Escolha entre:
+            <ul>
+                <li>🔵 <strong>Tirar Foto:</strong> Câmera abrirá automaticamente (no celular)</li>
+                <li>🔵 <strong>Galeria:</strong> Escolher foto existente</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <strong>3.</strong> A foto aparecerá em miniatura
+        </div>
+        
+        <div class="step">
+            <strong>4.</strong> Para remover: clique no <strong>×</strong> vermelho
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>✍️ Como Assinar</h2>
+        
+        <div class="step">
+            <strong>No Celular/Tablet:</strong> Use o dedo para desenhar a assinatura diretamente na tela
+        </div>
+        
+        <div class="step">
+            <strong>No Computador:</strong> Use o mouse para desenhar a assinatura
+        </div>
+        
+        <div class="step">
+            <strong>Errou?</strong> Clique no botão <strong>"Limpar"</strong> abaixo da assinatura
+        </div>
+        
+        <div class="success">
+            ✅ Há dois campos: um para o <strong>Técnico</strong> e outro para o <strong>Cliente</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📄 Como Gerar e Compartilhar o PDF</h2>
+        
+        <div class="step">
+            <strong>1.</strong> Preencha todos os campos necessários
+        </div>
+        
+        <div class="step">
+            <strong>2.</strong> Clique em <strong>"📄 Gerar PDF"</strong>
+        </div>
+        
+        <div class="step">
+            <strong>3.</strong> No celular, aparecerá a opção de compartilhar via:
+            <ul>
+                <li>📧 E-mail</li>
+                <li>💬 WhatsApp</li>
+                <li>☁️ Google Drive</li>
+                <li>📤 Outros aplicativos</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <strong>4.</strong> No computador, o PDF será baixado automaticamente
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🔄 Como Limpar o Formulário</h2>
+        
+        <div class="step">
+            <strong>1.</strong> Clique em <strong>"🔄 Limpar Formulário"</strong>
+        </div>
+        
+        <div class="step">
+            <strong>2.</strong> Confirme a ação
+        </div>
+        
+        <div class="step">
+            <strong>3.</strong> Todos os campos serão limpos (exceto data e número da OS)
+        </div>
+        
+        <div class="error">
+            ⚠️ <strong>ATENÇÃO:</strong> Esta ação não pode ser desfeita!
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>❓ Solução de Problemas</h2>
+        
+        <h3>Problema: Os valores não calculam</h3>
+        <div class="success">
+            ✅ <strong>Solução:</strong> Certifique-se de digitar apenas números no campo de valor unitário (ex: <code>5000</code> para R$ 50,00)
+        </div>
+
+        <h3>Problema: A assinatura não funciona</h3>
+        <div class="success">
+            ✅ <strong>Solução:</strong> Tente limpar a assinatura e desenhar novamente. Use um navegador atualizado (Chrome recomendado)
+        </div>
+
+        <h3>Problema: Não consigo tirar foto</h3>
+        <div class="success">
+            ✅ <strong>Solução:</strong> Permita o acesso à câmera quando o navegador solicitar
+        </div>
+
+        <h3>Problema: O PDF não abre/compartilha</h3>
+        <div class="success">
+            ✅ <strong>Solução:</strong> Certifique-se de ter conexão com a internet na primeira vez. Depois funciona offline
+        </div>
+    </div>
+
+    <div class="card" style="background: #E8F5E9; border: 2px solid #4CAF50;">
+        <h2 style="color: #2E7D32;">✅ Checklist Antes de Gerar o PDF</h2>
+        
+        <ul style="font-size: 16px; line-height: 2;">
+            <li>☑️ Preenchi o nome do cliente</li>
+            <li>☑️ Preenchi CNPJ/CPF e endereço</li>
+            <li>☑️ Adicionei os itens/serviços com quantidades e valores</li>
+            <li>☑️ Conferi se o Valor TOTAL está correto</li>
+            <li>☑️ Adicionei fotos (se necessário)</li>
+            <li>☑️ Preenchi o laudo técnico</li>
+            <li>☑️ Preenchi data e horários</li>
+            <li>☑️ Técnico assinou</li>
+            <li>☑️ Cliente assinou</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; padding: 30px; background: #1976D2; color: white; border-radius: 8px; margin-top: 30px;">
+        <h2 style="color: white; margin: 0;">Elfon Service</h2>
+        <p style="margin: 10px 0;">Email: elfon@elfon.com.br</p>
+        <p style="margin: 10px 0;">Telefone: (15) 2102-4777</p>
+        <p style="margin: 10px 0;">Site: www.elfon.com.br</p>
+    </div>
+</body>
+</html>

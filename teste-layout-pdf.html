@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Layout PDF - Cabeçalho 3 Colunas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1976D2;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .alert {
+            background: #E3F2FD;
+            border-left: 5px solid #1976D2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .alert h3 {
+            color: #1976D2;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .alert ul {
+            margin-left: 20px;
+            line-height: 2;
+            color: #333;
+        }
+        
+        .alert strong {
+            color: #1976D2;
+        }
+        
+        .success {
+            background: #C8E6C9;
+            border-left-color: #4CAF50;
+        }
+        
+        .success h3 {
+            color: #2E7D32;
+        }
+        
+        .mockup {
+            background: #f9f9f9;
+            border: 2px solid #1976D2;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .mockup h3 {
+            color: #1976D2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .pdf-header {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            position: relative;
+            min-height: 120px;
+        }
+        
+        .pdf-logo {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            width: 45px;
+            height: 30px;
+            background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .pdf-center {
+            text-align: center;
+            padding-top: 10px;
+        }
+        
+        .pdf-center h2 {
+            color: #1976D2;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .pdf-center p {
+            color: #333;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .pdf-right {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            text-align: right;
+        }
+        
+        .pdf-right p {
+            font-size: 8px;
+            color: #333;
+            margin: 3px 0;
+        }
+        
+        .pdf-line {
+            border-bottom: 2px solid #1976D2;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 2px solid #1976D2;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .feature-card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Novo Layout do PDF - 3 Colunas</h1>
+        
+        <div class="alert success">
+            <h3>🎉 Correções Aplicadas:</h3>
+            <ul>
+                <li>✅ <strong>Logo à esquerda</strong> (posição 10mm, qualidade PNG alta)</li>
+                <li>✅ <strong>Elfon Service</strong> centralizado em cima</li>
+                <li>✅ <strong>Ordem de Serviço Nº</strong> centralizado abaixo</li>
+                <li>✅ <strong>Dados da empresa</strong> alinhados à direita (Email, Telefone, Site, CNPJ)</li>
+                <li>✅ <strong>Qualidade do logo</strong> melhorada (PNG ao invés de JPEG)</li>
+                <li>✅ <strong>Proporção do logo</strong> mantida sem deformação</li>
+            </ul>
+        </div>
+        
+        <div class="mockup">
+            <h3>📄 Prévia do Cabeçalho no PDF</h3>
+            <div class="pdf-header">
+                <div class="pdf-logo">LOGO</div>
+                
+                <div class="pdf-center">
+                    <h2>Elfon Service</h2>
+                    <p>Ordem de Serviço Nº: 001</p>
+                </div>
+                
+                <div class="pdf-right">
+                    <p>Email: elfon@elfon.com.br</p>
+                    <p>Telefone: (15) 2102-4777</p>
+                    <p>Site: www.elfon.com.br</p>
+                    <p>CNPJ: 62.651.123/0001-40</p>
+                </div>
+                
+                <div class="pdf-line"></div>
+            </div>
+        </div>
+        
+        <div class="alert">
+            <h3>🔧 Melhorias Técnicas Aplicadas:</h3>
+            <ul>
+                <li><strong>Formato PNG:</strong> Melhor qualidade de imagem (sem compressão JPEG)</li>
+                <li><strong>Proporção mantida:</strong> Usa Math.min() para calcular proporção correta</li>
+                <li><strong>Fundo branco:</strong> Canvas com fundo branco antes de desenhar o logo</li>
+                <li><strong>Tamanho otimizado:</strong> Logo 45mm × 30mm máximo (sem deformação)</li>
+                <li><strong>Posicionamento absoluto:</strong> 3 colunas (10mm esquerda, 105mm centro, 200mm direita)</li>
+            </ul>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">📷</div>
+                <h4>Logo Esquerda</h4>
+                <p>Posição: 10mm<br>Tamanho: 45×30mm<br>Formato: PNG</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">🏢</div>
+                <h4>Empresa Centro</h4>
+                <p>Elfon Service (18pt)<br>OS Nº (12pt)<br>Alinhado centro</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">📞</div>
+                <h4>Dados Direita</h4>
+                <p>Email, Tel, Site, CNPJ<br>Fonte: 8pt<br>Alinhado direita</p>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <a href="index.html" class="btn">🚀 Testar Geração de PDF</a>
+            <a href="teste-pdf.html" class="btn">📋 Instruções Completas</a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #FFF3E0; border-radius: 8px; border-left: 5px solid #FF9800;">
+            <h3 style="color: #E65100; margin-bottom: 15px;">⚠️ Como Testar:</h3>
+            <ol style="margin-left: 20px; line-height: 2; color: #333;">
+                <li>Abra o arquivo <strong>index.html</strong></li>
+                <li>Preencha alguns dados de teste (cliente, itens, etc.)</li>
+                <li>Clique em <strong>"Gerar PDF"</strong></li>
+                <li>Verifique se o logo aparece <strong>à esquerda</strong> sem deformação</li>
+                <li>Confirme que <strong>Elfon Service</strong> e <strong>OS Nº</strong> estão centralizados</li>
+                <li>Verifique se os <strong>dados da empresa</strong> estão à direita</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+═══════════════════════════════════════════════════════════════
+   CORREÇÕES NO PDF - ELFON SERVICE OS
+═══════════════════════════════════════════════════════════════
+
+✅ PROBLEMAS CORRIGIDOS:
+
+1. ✅ Logo agora aparece no PDF
+2. ✅ Formato da data mudado no nome do arquivo
+
+═══════════════════════════════════════════════════════════════
+   DETALHES DAS CORREÇÕES
+═══════════════════════════════════════════════════════════════
+
+📷 CORREÇÃO 1: LOGO NO PDF
+
+PROBLEMA:
+• Logo aparecia no aplicativo mas não no PDF gerado
+
+SOLUÇÃO APLICADA:
+• Captura da imagem do logo do HTML
+• Conversão para base64
+• Inserção no PDF no canto superior esquerdo
+• Redimensionamento proporcional (máx 50px × 25px)
+
+CÓDIGO ADICIONADO:
+```javascript
+const logoImg = document.querySelector('.header-left .logo');
+if (logoImg && logoImg.complete) {
+    // Cria canvas e redimensiona
+    // Converte para base64
+    // Adiciona ao PDF
+    doc.addImage(logoDataUrl, 'JPEG', 10, yPos, width, height);
+}
+```
+
+═══════════════════════════════════════════════════════════════
+
+📅 CORREÇÃO 2: FORMATO DA DATA NO NOME DO ARQUIVO
+
+PROBLEMA:
+• Nome do arquivo: OS_001_Cliente_20260116.pdf
+• Data no formato: YYYYMMDD (ano-mês-dia sem separador)
+• Difícil de ler e não segue padrão brasileiro
+
+SOLUÇÃO APLICADA:
+• Nome do arquivo: OS_001_Cliente_16-01-2026.pdf
+• Data no formato: DD-MM-YYYY (dia-mês-ano)
+• Formato brasileiro padrão com separadores
+
+CÓDIGO MODIFICADO:
+```javascript
+// ANTES:
+const data = document.getElementById('data').value.replace(/-/g, '');
+const fileName = `OS_${osNumber}_${cliente}_${data}.pdf`;
+// Resultado: OS_001_Cliente_20260116.pdf
+
+// DEPOIS:
+const [ano, mes, dia] = dataValue.split('-');
+const dataFormatada = `${dia}-${mes}-${ano}`;
+const fileName = `OS_${osNumber}_${cliente}_${dataFormatada}.pdf`;
+// Resultado: OS_001_Cliente_16-01-2026.pdf
+```
+
+═══════════════════════════════════════════════════════════════
+   EXEMPLOS DE NOMES DE ARQUIVO
+═══════════════════════════════════════════════════════════════
+
+ANTES (FORMATO ANTIGO):
+• OS_001_João Silva_20260116.pdf
+• OS_002_Maria Santos_20251225.pdf
+• OS_123_Empresa XYZ_20260305.pdf
+
+DEPOIS (FORMATO NOVO):
+• OS_001_João Silva_16-01-2026.pdf
+• OS_002_Maria Santos_25-12-2025.pdf
+• OS_123_Empresa XYZ_05-03-2026.pdf
+
+═══════════════════════════════════════════════════════════════
+   ESTRUTURA DO PDF GERADO
+═══════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  [LOGO]              ELFON SERVICE                          │
+│                 Email: ... | Telefone: ...                  │
+│              Site: ... | CNPJ: ...                          │
+│                                                             │
+│              Ordem de Serviço Nº: 001                       │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│  Cliente: Nome do Cliente                                   │
+│  CNPJ: ...                    IE: ...                       │
+│  Endereço: ...                Nº: ...                       │
+│  Bairro: ...                  CEP: ...                      │
+│  Telefone: ...                                              │
+│  E-mail: ...                                                │
+│  Contato no local: ...                                      │
+│  Defeito Reclamado: ...                                     │
+│                                                             │
+│  [TABELA DE ITENS/SERVIÇOS]                                 │
+│                                                             │
+│  [FOTOS - se houver]                                        │
+│                                                             │
+│  Condição de Pagamento: ...   Valor TOTAL: R$ ...           │
+│  Laudo Técnico: ...                                         │
+│                                                             │
+│  Data: ...  Hora Inicial: ...  Hora Final: ...              │
+│  [Assinatura Técnico]          [Assinatura Cliente]         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+   COMO TESTAR
+═══════════════════════════════════════════════════════════════
+
+1️⃣  Teste Rápido:
+   • Abra: teste-pdf.html
+   • Leia as instruções completas
+   • Clique em "Abrir Aplicativo e Testar"
+
+2️⃣  Teste Completo:
+   a) Abra index.html
+   b) Preencha:
+      - Nome do cliente
+      - Pelo menos 1 item com quantidade e valor
+      - Data (ou deixe a data atual)
+   c) Clique em "Gerar PDF"
+   d) Verifique:
+      ✓ Logo aparece no canto superior esquerdo?
+      ✓ Nome do arquivo tem formato DD-MM-YYYY?
+
+3️⃣  Verificações no PDF:
+   • Logo visível? ✓
+   • Dados da empresa? ✓
+   • Número da OS? ✓
+   • Dados do cliente? ✓
+   • Tabela de itens? ✓
+   • Valores calculados? ✓
+   • Fotos (se adicionadas)? ✓
+   • Assinaturas (se preenchidas)? ✓
+
+═══════════════════════════════════════════════════════════════
+   ARQUIVOS MODIFICADOS
+═══════════════════════════════════════════════════════════════
+
+✅ app.js
+   → Função generatePDF() modificada
+   → Adicionado código para capturar e inserir logo
+   → Modificado formato da data no nome do arquivo
+
+✅ teste-pdf.html (NOVO)
+   → Página de instruções e teste do PDF
+   → Exemplos de nomes de arquivo
+   → Checklist de verificação
+
+✅ CORRECOES-PDF.txt (ESTE ARQUIVO)
+   → Documentação das correções aplicadas
+
+═══════════════════════════════════════════════════════════════
+   OBSERVAÇÕES TÉCNICAS
+═══════════════════════════════════════════════════════════════
+
+LOGO NO PDF:
+• Capturado do elemento HTML <img> no cabeçalho
+• Convertido para canvas para manipulação
+• Redimensionado mantendo proporções
+• Formato JPEG com qualidade 80%
+• Posição: x=10, y=15 (canto superior esquerdo)
+• Tamanho máximo: 50px × 25px
+
+DATA NO ARQUIVO:
+• Pega do campo <input type="date" id="data">
+• Formato original do input: YYYY-MM-DD
+• Convertido para: DD-MM-YYYY
+• Fallback: se não houver data, usa data atual
+• Separador: hífen (-)
+
+═══════════════════════════════════════════════════════════════
+   TRATAMENTO DE ERROS
+═══════════════════════════════════════════════════════════════
+
+LOGO:
+• Envolto em try-catch
+• Se falhar, PDF é gerado sem o logo (não quebra)
+• Erro logado no console para debug
+• Requer que logo.jpg exista e esteja carregado
+
+DATA:
+• Verifica se campo data tem valor
+• Se não tiver, usa data atual do sistema
+• Sempre gera um nome de arquivo válido
+
+═══════════════════════════════════════════════════════════════
+   POSSÍVEIS PROBLEMAS E SOLUÇÕES
+═══════════════════════════════════════════════════════════════
+
+❌ PROBLEMA: Logo não aparece no PDF
+✅ SOLUÇÃO:
+   1. Verifique se logo.jpg existe na pasta
+   2. Abra o console (F12) e veja se há erros
+   3. Certifique-se que a imagem carregou (não está quebrada)
+   4. Aguarde 1-2 segundos após abrir a página
+
+❌ PROBLEMA: Nome do arquivo ainda está errado
+✅ SOLUÇÃO:
+   1. Limpe o cache do navegador (Ctrl+Shift+Delete)
+   2. Recarregue a página (Ctrl+F5)
+   3. Verifique se salvou o arquivo app.js
+   4. Feche e abra o navegador novamente
+
+❌ PROBLEMA: PDF não gera
+✅ SOLUÇÃO:
+   1. Primeira vez precisa de internet (baixa bibliotecas)
+   2. Preencha pelo menos o nome do cliente
+   3. Verifique console (F12) para erros
+   4. Tente em navegador atualizado (Chrome recomendado)
+
+═══════════════════════════════════════════════════════════════
+   RESUMO FINAL
+═══════════════════════════════════════════════════════════════
+
+✅ Logo agora aparece no PDF (canto superior esquerdo)
+✅ Data no formato brasileiro (DD-MM-YYYY) no nome do arquivo
+✅ Sistema testado e funcionando
+✅ Tratamento de erros implementado
+✅ Fallbacks para casos especiais
+
+═══════════════════════════════════════════════════════════════
+
+         🎉 CORREÇÕES APLICADAS COM SUCESSO! 🎉
+
+═══════════════════════════════════════════════════════════════
+
+Para testar:
+1. Abra: teste-pdf.html (instruções detalhadas)
+2. Ou abra: index.html (teste direto)
+3. Gere um PDF e verifique as correções
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header {
+    border-bottom: 3px solid #1976D2;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header-left {
+    flex: 0 0 auto;
+}
+
+.header-left .logo {
+    max-width: 180px;
+    max-height: 80px;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.header-center h1 {
+    color: #1976D2;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.os-number-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.os-number-inline label {
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.os-number-inline input {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    padding: 5px;
+    border: 2px solid #1976D2;
+    border-radius: 4px;
+}
+
+.header-right {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.header-right p {
+    font-size: 12px;
+    color: #333;
+    margin: 3px 0;
+    white-space: nowrap;
+}
+
+.form-content section {
+    margin-bottom: 30px;
+}
+
+.client-section h2,
+.items-section h2,
+.photos-section h2,
+.payment-section h2,
+.signature-section h2 {
+    background-color: #1976D2;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1976D2;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-row .flex-1 {
+    flex: 1;
+}
+
+.form-row .flex-2 {
+    flex: 2;
+}
+
+.form-row .flex-3 {
+    flex: 3;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#itemsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#itemsTable th {
+    background-color: #1976D2;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+#itemsTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#itemsTable input,
+#itemsTable textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+#itemsTable input[type="number"] {
+    text-align: right;
+}
+
+#itemsTable .item-number {
+    width: 50px;
+    text-align: center;
+}
+
+#itemsTable .item-quantity {
+    width: 60px;
+}
+
+#itemsTable .item-description {
+    min-width: 200px;
+}
+
+#itemsTable .item-price {
+    width: 100px;
+}
+
+#itemsTable .item-total {
+    width: 100px;
+}
+
+#itemsTable .item-action {
+    width: 80px;
+    text-align: center;
+}
+
+.btn-add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.btn-remove {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-remove:hover {
+    background-color: #da190b;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.photo-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+}
+
+.photo-item .remove-photo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.signatures-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.signature-box {
+    flex: 1;
+    min-width: 280px;
+}
+
+.signature-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.signature-box canvas {
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: crosshair;
+    background-color: white;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+    touch-action: none;
+}
+
+.btn-clear {
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-clear:hover {
+    background-color: #e68900;
+}
+
+.actions-section {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background-color: #1976D2;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1565C0;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-left .logo {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .header-center {
+        width: 100%;
+    }
+
+    .header-center h1 {
+        font-size: 22px;
+    }
+
+    .os-number-inline {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .os-number-inline label {
+        font-size: 14px;
+    }
+
+    .os-number-inline input {
+        font-size: 14px;
+    }
+
+    .header-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-right p {
+        font-size: 11px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 15px;
+    }
+
+    #itemsTable {
+        font-size: 12px;
+    }
+
+    #itemsTable th,
+    #itemsTable td {
+        padding: 6px 4px;
+    }
+
+    .signatures-container {
+        flex-direction: column;
+    }
+
+    .signature-box canvas {
+        max-width: 100%;
+    }
+
+    .actions-section {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        min-width: 100%;
+    }
+}
+
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .actions-section,
+    .btn-add,
+    .btn-remove,
+    .btn-clear {
+        display: none;
+    }
+}

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 Como Usar Offline no Celular - Elfon Service OS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1976D2;
+            margin-bottom: 15px;
+            font-size: 36px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .method-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .method-card.recommended {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-color: #4CAF50;
+        }
+        
+        .method-card .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .method-card h3 {
+            color: #1976D2;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .method-card.recommended h3 {
+            color: #2E7D32;
+        }
+        
+        .method-card .difficulty {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty.easy {
+            background: #C8E6C9;
+            color: #2E7D32;
+        }
+        
+        .difficulty.medium {
+            background: #FFF9C4;
+            color: #F57F17;
+        }
+        
+        .difficulty.hard {
+            background: #FFCDD2;
+            color: #C62828;
+        }
+        
+        .method-card ul {
+            text-align: left;
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .method-card ul li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .method-card ul li::before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .badge {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .steps-section {
+            background: #E3F2FD;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 5px solid #1976D2;
+        }
+        
+        .steps-section h2 {
+            color: #1976D2;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .step {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #1976D2;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .step h3 {
+            display: inline;
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .step p {
+            margin-top: 15px;
+            color: #666;
+            line-height: 1.8;
+            margin-left: 55px;
+        }
+        
+        .step code {
+            background: #2d2d2d;
+            color: #0f0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #E65100;
+            margin-bottom: 10px;
+        }
+        
+        .success-box {
+            background: #E8F5E9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .success-box h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 10px;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        @media (max-width: 768px) {
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Como Usar Offline no Celular</h1>
+        <p class="subtitle">Elfon Service OS - 100% Funcional Sem Internet</p>
+        
+        <div class="method-grid">
+            <!-- MÉTODO 1 -->
+            <div class="method-card">
+                <div class="icon">📁</div>
+                <h3>Método 1: USB</h3>
+                <span class="difficulty easy">FÁCIL</span>
+                <ul>
+                    <li>Transferir pasta via USB</li>
+                    <li>Abrir com HTML Viewer</li>
+                    <li>100% offline sempre</li>
+                    <li>Sem hospedar</li>
+                </ul>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                    <strong>Tempo:</strong> 5 minutos<br>
+                    <strong>Internet:</strong> Não precisa
+                </p>
+            </div>
+            
+            <!-- MÉTODO 2 (RECOMENDADO) -->
+            <div class="method-card recommended">
+                <div class="icon">🌟</div>
+                <h3>Método 2: PWA</h3>
+                <span class="difficulty easy">FÁCIL</span>
+                <span class="badge">RECOMENDADO</span>
+                <ul>
+                    <li>Hospedar grátis online</li>
+                    <li>Instalar como app nativo</li>
+                    <li>Offline após instalação</li>
+                    <li>Tela cheia</li>
+                </ul>
+                <p style="margin-top: 15px; color: #2E7D32; font-size: 14px;">
+                    <strong>Tempo:</strong> 10 minutos<br>
+                    <strong>Internet:</strong> Só 1ª vez
+                </p>
+            </div>
+            
+            <!-- MÉTODO 3 -->
+            <div class="method-card">
+                <div class="icon">📦</div>
+                <h3>Método 3: APK</h3>
+                <span class="difficulty hard">AVANÇADO</span>
+                <ul>
+                    <li>Criar arquivo APK</li>
+                    <li>Instalar como app</li>
+                    <li>Distribuir WhatsApp</li>
+                    <li>100% nativo</li>
+                </ul>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                    <strong>Tempo:</strong> 30 minutos<br>
+                    <strong>Internet:</strong> Para criar APK
+                </p>
+            </div>
+        </div>
+        
+        <!-- MÉTODO 2 DETALHADO (RECOMENDADO) -->
+        <div class="steps-section">
+            <h2>🌟 Método 2: PWA (Recomendado) - Passo a Passo</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Hospedar Grátis no Netlify</h3>
+                <p>
+                    <strong>a)</strong> Acesse: <a href="https://www.netlify.com/" target="_blank">https://www.netlify.com/</a><br>
+                    <strong>b)</strong> Faça login com Google ou GitHub (grátis)<br>
+                    <strong>c)</strong> Clique em <code>Add new site</code> → <code>Deploy manually</code><br>
+                    <strong>d)</strong> Arraste a pasta <code>C:\Users\edwal\OneDrive\os</code> para o site<br>
+                    <strong>e)</strong> Aguarde 1 minuto (upload e deploy)<br>
+                    <strong>f)</strong> Copie o link: <code>https://seu-app.netlify.app</code>
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Instalar no Celular (COM INTERNET - Apenas 1 vez)</h3>
+                <p>
+                    <strong>a)</strong> No celular, abra o <strong>Chrome</strong><br>
+                    <strong>b)</strong> Cole o link do seu app (ex: https://seu-app.netlify.app)<br>
+                    <strong>c)</strong> O app vai carregar (aguarde cachear tudo - 10 segundos)<br>
+                    <strong>d)</strong> Menu Chrome (⋮) → <strong>"Adicionar à tela inicial"</strong><br>
+                    <strong>e)</strong> Confirme a instalação<br>
+                    <strong>f)</strong> Ícone "Elfon Service OS" aparece na tela inicial
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <h3>Usar 100% Offline</h3>
+                <p>
+                    <strong>a)</strong> Feche o Chrome<br>
+                    <strong>b)</strong> <strong>DESLIGUE A INTERNET</strong> do celular (modo avião)<br>
+                    <strong>c)</strong> Abra o app pelo ícone na tela inicial<br>
+                    <strong>d)</strong> Funciona perfeitamente offline! ✅<br>
+                    <strong>e)</strong> Crie OS, gere PDF, tire fotos - tudo offline!
+                </p>
+            </div>
+            
+            <div class="success-box">
+                <h4>✅ Pronto! App Instalado e Funcionando Offline</h4>
+                <p style="margin-top: 10px; color: #1B5E20;">
+                    Agora você pode usar o app em qualquer lugar, sem internet, sem estar na rede do PC.
+                    O app funciona como um aplicativo nativo instalado da Play Store!
+                </p>
+            </div>
+        </div>
+        
+        <!-- MÉTODO 1 DETALHADO -->
+        <div class="steps-section" style="background: #FFF3E0; border-left-color: #FF9800;">
+            <h2 style="color: #E65100;">📁 Método 1: USB - Passo a Passo</h2>
+            
+            <div class="step">
+                <span class="step-number" style="background: #FF9800;">1</span>
+                <h3>Preparar Pacote no PC</h3>
+                <p>
+                    <strong>a)</strong> Execute o script: <code>1-CRIAR-PACOTE-USB.ps1</code><br>
+                    <strong>b)</strong> Ele criará: <code>elfon-os-offline.zip</code> na Área de Trabalho<br>
+                    <strong>c)</strong> Ou copie manualmente a pasta <code>C:\Users\edwal\OneDrive\os</code>
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number" style="background: #FF9800;">2</span>
+                <h3>Transferir para Celular</h3>
+                <p>
+                    <strong>a)</strong> Conecte o celular no PC via cabo USB<br>
+                    <strong>b)</strong> No celular, ative "Transferência de arquivos"<br>
+                    <strong>c)</strong> Copie a pasta ou ZIP para: <code>Armazenamento/ElfонService/</code><br>
+                    <strong>d)</strong> Se copiou ZIP, descompacte no celular
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number" style="background: #FF9800;">3</span>
+                <h3>Abrir no Celular</h3>
+                <p>
+                    <strong>Opção A:</strong> Instale "HTML Viewer" da Play Store<br>
+                    <strong>Opção B:</strong> No Chrome, digite <code>file:///</code> e navegue até <code>index.html</code><br>
+                    <strong>c)</strong> Adicione à tela inicial para acesso rápido
+                </p>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <h4>⚠️ Importante: Arquivos Necessários</h4>
+            <p style="margin-top: 10px; color: #E65100; line-height: 1.8;">
+                O app agora usa bibliotecas <strong>locais</strong> (pasta <code>libs/</code>).<br>
+                Certifique-se de copiar a pasta completa, incluindo:<br>
+                • <code>libs/jspdf.umd.min.js</code><br>
+                • <code>libs/jspdf.plugin.autotable.min.js</code><br>
+                <strong>Sem esses arquivos, o PDF não será gerado!</strong>
+            </p>
+        </div>
+        
+        <div class="cta-section">
+            <h2>🚀 Comece Agora!</h2>
+            <p style="margin-bottom: 30px; font-size: 18px;">
+                Escolha um método e siga o passo a passo acima
+            </p>
+            <button class="btn-primary" onclick="window.location.href='index.html'">
+                📄 Testar App Agora
+            </button>
+            <button class="btn-primary btn-secondary" onclick="window.location.href='GUIA-OFFLINE-CELULAR.txt'">
+                📚 Guia Completo (TXT)
+            </button>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 25px; background: #E1F5FE; border-radius: 10px;">
+            <h3 style="color: #01579B; margin-bottom: 15px;">❓ Perguntas Frequentes</h3>
+            
+            <details style="margin: 10px 0; cursor: pointer;">
+                <summary style="font-weight: bold; padding: 10px; background: white; border-radius: 5px;">
+                    Funciona sem internet?
+                </summary>
+                <p style="padding: 15px; color: #555;">
+                    <strong>Método 1:</strong> SIM, 100% offline desde o início.<br>
+                    <strong>Método 2:</strong> SIM, offline após 1ª instalação (precisa internet só uma vez).<br>
+                    <strong>Método 3:</strong> SIM, 100% offline após instalação do APK.
+                </p>
+            </details>
+            
+            <details style="margin: 10px 0; cursor: pointer;">
+                <summary style="font-weight: bold; padding: 10px; background: white; border-radius: 5px;">
+                    Preciso estar na mesma rede Wi-Fi do PC?
+                </summary>
+                <p style="padding: 15px; color: #555;">
+                    <strong>NÃO!</strong> Após instalação, o app funciona totalmente independente do PC.
+                    Pode levar o celular para qualquer lugar.
+                </p>
+            </details>
+            
+            <details style="margin: 10px 0; cursor: pointer;">
+                <summary style="font-weight: bold; padding: 10px; background: white; border-radius: 5px;">
+                    Os PDFs funcionam offline?
+                </summary>
+                <p style="padding: 15px; color: #555;">
+                    <strong>SIM!</strong> As bibliotecas jsPDF estão agora incluídas localmente (pasta <code>libs/</code>).
+                    Gera PDF 100% offline sem precisar de internet.
+                </p>
+            </details>
+            
+            <details style="margin: 10px 0; cursor: pointer;">
+                <summary style="font-weight: bold; padding: 10px; background: white; border-radius: 5px;">
+                    Qual método é o melhor?
+                </summary>
+                <p style="padding: 15px; color: #555;">
+                    <strong>Recomendamos o Método 2 (PWA)</strong> porque:<br>
+                    • Experiência de app nativo<br>
+                    • Ícone na tela inicial<br>
+                    • Abre em tela cheia<br>
+                    • Funciona 100% offline após instalação<br>
+                    • Fácil de instalar (5-10 minutos)
+                </p>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

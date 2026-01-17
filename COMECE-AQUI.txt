@@ -1,0 +1,103 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║           ELFON SERVICE - ORDEM DE SERVIÇO                    ║
+║              Sistema PWA com Assinatura Digital               ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+🚀 INÍCIO RÁPIDO (ESCOLHA UMA OPÇÃO):
+
+  1️⃣  Duplo clique em: bem-vindo.html
+     → Página de boas-vindas com todos os links
+
+  2️⃣  Duplo clique em: INICIAR.ps1
+     → Menu interativo para iniciar servidor
+
+  3️⃣  Duplo clique em: index.html
+     → Abre direto o aplicativo
+
+
+📚 ARQUIVOS IMPORTANTES:
+
+  📖 guia-de-uso.html
+     → Guia visual COMPLETO (RECOMENDADO LER PRIMEIRO!)
+  
+  🧪 teste-calculo.html
+     → Teste se os cálculos estão funcionando
+  
+  📄 RESUMO-FINAL.txt
+     → Todas as correções aplicadas
+  
+  📋 README-PT.md
+     → Documentação em português
+
+
+✅ CORREÇÕES APLICADAS:
+
+  ✔️ Cálculo automático: Quantidade × Valor Unitário
+  ✔️ Soma total geral de todas as linhas
+  ✔️ Logo da Elfon Service no cabeçalho
+  ✔️ Atualização em tempo real
+
+
+🔢 COMO DIGITAR VALORES:
+
+  Digite APENAS NÚMEROS (sem vírgula, sem R$):
+  
+  R$ 50,00   → digite: 5000
+  R$ 100,00  → digite: 10000
+  R$ 15,50   → digite: 1550
+
+
+📱 FUNCIONALIDADES:
+
+  ✅ Formulário completo
+  ✅ Cálculo automático
+  ✅ Captura de fotos
+  ✅ Assinatura digital
+  ✅ Geração de PDF
+  ✅ Compartilhamento
+  ✅ PWA instalável
+  ✅ Funciona offline
+
+
+🌐 SERVIDOR LOCAL:
+
+  Python:
+  python -m http.server 8000
+  
+  Node.js:
+  npx http-server -p 8000
+  
+  Acesse: http://localhost:8000
+
+
+📲 USAR NO CELULAR:
+
+  1. Inicie servidor no PC
+  2. Descubra IP: ipconfig
+  3. No celular: http://SEU_IP:8000
+  4. Chrome → Menu → "Adicionar à tela inicial"
+
+
+☁️ DEPLOY ONLINE (GRATUITO):
+
+  • Netlify → https://www.netlify.com
+  • Vercel → https://vercel.com
+  • GitHub Pages → https://pages.github.com
+
+
+📞 CONTATO:
+
+  Elfon Service
+  📧 elfon@elfon.com.br
+  📱 (15) 2102-4777
+  🌐 www.elfon.com.br
+  🏢 CNPJ: 62.651.123/0001-40
+
+
+═══════════════════════════════════════════════════════════════
+
+         🎉 TUDO PRONTO PARA USO! BOA SORTE! 🎉
+
+═══════════════════════════════════════════════════════════════

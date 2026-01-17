@@ -1,0 +1,70 @@
+===========================================
+INSTRUÇÕES IMPORTANTES - ELFON SERVICE OS
+===========================================
+
+1. COPIAR O LOGO DA EMPRESA
+   Execute este comando no PowerShell:
+   
+   Copy-Item "C:\Users\edwal\.verdent\artifacts\images\66423a45-657f-49ab-ada0-50bfe8ff6321\1768598671031_09a488c4.jpeg" "C:\Users\edwal\OneDrive\os\logo.png"
+
+2. TESTAR OS CÁLCULOS
+   Abra o arquivo: teste-calculo.html
+   
+   - Digite valores unitários (ex: 5000 = R$ 50,00)
+   - Digite quantidades
+   - Verifique se o total da linha calcula corretamente
+   - Verifique se o total geral soma todas as linhas
+
+3. COMO USAR O APLICATIVO
+   
+   A) Para Valor Unitário:
+      - Digite o valor SEM a vírgula
+      - Exemplo: Para R$ 50,00 digite: 5000
+      - Exemplo: Para R$ 100,00 digite: 10000
+      - Exemplo: Para R$ 15,50 digite: 1550
+      
+   B) Para Quantidade:
+      - Digite normalmente
+      - Aceita decimais (ex: 2.5, 1.25)
+      
+   C) Valor Total da Linha:
+      - Calculado automaticamente
+      - Quantidade x Valor Unitário
+      
+   D) Valor Total Geral:
+      - Soma de todos os valores totais das linhas
+      - Atualizado automaticamente
+
+4. INICIAR SERVIDOR LOCAL
+   No PowerShell, execute:
+   
+   cd C:\Users\edwal\OneDrive\os
+   python -m http.server 8000
+   
+   Ou se tiver Node.js:
+   
+   npx http-server -p 8000
+   
+   Depois acesse: http://localhost:8000
+
+5. TESTAR NO CELULAR
+   - Conecte o celular na mesma rede Wi-Fi do computador
+   - Descubra o IP do computador: ipconfig
+   - Acesse no celular: http://SEU_IP:8000
+   - Exemplo: http://192.168.1.100:8000
+
+6. INSTALAR COMO PWA
+   - No Chrome Android: Menu ⋮ → "Adicionar à tela inicial"
+   - O ícone do app aparecerá na tela inicial
+
+===========================================
+CORREÇÕES APLICADAS:
+===========================================
+
+✅ Cálculo do valor total da linha (Quantidade x Valor Unitário)
+✅ Soma do valor total geral
+✅ Logo da empresa (precisa copiar o arquivo)
+✅ Máscaras de entrada para valores
+✅ Atualização automática dos totais
+
+===========================================

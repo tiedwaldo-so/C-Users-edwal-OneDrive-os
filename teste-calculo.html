@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Cálculo</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #1976D2; color: white; }
+        input { width: 100%; padding: 5px; }
+        .total-display { font-size: 20px; font-weight: bold; color: green; margin: 20px 0; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Teste de Cálculo - Ordem de Serviço</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário (R$)</th>
+                <th>Valor Total (R$)</th>
+            </tr>
+        </thead>
+        <tbody id="testTable">
+            <tr>
+                <td>1</td>
+                <td><input type="number" class="qty" value="0" min="0" step="1" data-row="1"></td>
+                <td><input type="text" class="price" value="" placeholder="0,00" data-row="1"></td>
+                <td><input type="text" class="total" readonly value="" data-row="1"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="number" class="qty" value="0" min="0" step="1" data-row="2"></td>
+                <td><input type="text" class="price" value="" placeholder="0,00" data-row="2"></td>
+                <td><input type="text" class="total" readonly value="" data-row="2"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><input type="number" class="qty" value="0" min="0" step="1" data-row="3"></td>
+                <td><input type="text" class="price" value="" placeholder="0,00" data-row="3"></td>
+                <td><input type="text" class="total" readonly value="" data-row="3"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="total-display">
+        VALOR TOTAL GERAL: <span id="grandTotal">R$ 0,00</span>
+    </div>
+
+    <button onclick="testarCalculo()">Testar (2 x R$ 50,00 + 3 x R$ 100,00)</button>
+    <button onclick="limpar()">Limpar</button>
+
+    <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 5px;">
+        <h3>Instruções de Teste:</h3>
+        <ol>
+            <li><strong>Digite o valor unitário</strong> como você digitaria normalmente (ex: 5000 para R$ 50,00)</li>
+            <li><strong>Digite a quantidade</strong> (ex: 2)</li>
+            <li>O <strong>valor total da linha</strong> deve ser calculado automaticamente (2 x R$ 50,00 = R$ 100,00)</li>
+            <li>O <strong>valor total geral</strong> deve somar todas as linhas</li>
+        </ol>
+        <p><strong>Exemplo:</strong> Para R$ 50,00, digite "5000". Para R$ 100,00, digite "10000".</p>
+    </div>
+
+    <script>
+        function formatCurrency(value) {
+            if (!value) return '';
+            value = value.replace(/\D/g, '');
+            if (value === '') return '';
+            value = (parseInt(value) / 100).toFixed(2);
+            value = value.replace('.', ',');
+            return value;
+        }
+
+        function parseCurrency(value) {
+            if (!value) return 0;
+            return parseFloat(value.toString().replace(/\./g, '').replace(',', '.')) || 0;
+        }
+
+        function calculateRow(rowNum) {
+            const qtyInput = document.querySelector(`.qty[data-row="${rowNum}"]`);
+            const priceInput = document.querySelector(`.price[data-row="${rowNum}"]`);
+            const totalInput = document.querySelector(`.total[data-row="${rowNum}"]`);
+            
+            if (qtyInput && priceInput && totalInput) {
+                const qty = parseFloat(qtyInput.value) || 0;
+                const price = parseCurrency(priceInput.value);
+                const total = qty * price;
+                
+                console.log(`Linha ${rowNum}: ${qty} x ${price} = ${total}`);
+                
+                if (total > 0) {
+                    totalInput.value = total.toFixed(2).replace('.', ',');
+                } else {
+                    totalInput.value = '';
+                }
+                
+                calculateGrandTotal();
+            }
+        }
+
+        function calculateGrandTotal() {
+            const totalInputs = document.querySelectorAll('.total');
+            let grandTotal = 0;
+            
+            totalInputs.forEach(input => {
+                const value = parseCurrency(input.value);
+                grandTotal += value;
+                console.log(`Total parcial: ${input.value} = ${value}, Acumulado: ${grandTotal}`);
+            });
+            
+            const grandTotalDisplay = document.getElementById('grandTotal');
+            if (grandTotalDisplay) {
+                if (grandTotal > 0) {
+                    grandTotalDisplay.textContent = 'R$ ' + grandTotal.toFixed(2).replace('.', ',');
+                } else {
+                    grandTotalDisplay.textContent = 'R$ 0,00';
+                }
+            }
+            
+            console.log(`Total Geral Final: R$ ${grandTotal.toFixed(2)}`);
+        }
+
+        document.querySelectorAll('.qty').forEach(input => {
+            const row = input.getAttribute('data-row');
+            input.addEventListener('input', () => calculateRow(row));
+        });
+
+        document.querySelectorAll('.price').forEach(input => {
+            const row = input.getAttribute('data-row');
+            input.addEventListener('input', function(e) {
+                e.target.value = formatCurrency(e.target.value);
+                calculateRow(row);
+            });
+        });
+
+        function testarCalculo() {
+            const qty1 = document.querySelector('.qty[data-row="1"]');
+            const price1 = document.querySelector('.price[data-row="1"]');
+            qty1.value = 2;
+            price1.value = '5000';
+            price1.dispatchEvent(new Event('input'));
+            
+            setTimeout(() => {
+                const qty2 = document.querySelector('.qty[data-row="2"]');
+                const price2 = document.querySelector('.price[data-row="2"]');
+                qty2.value = 3;
+                price2.value = '10000';
+                price2.dispatchEvent(new Event('input'));
+            }, 100);
+        }
+
+        function limpar() {
+            document.querySelectorAll('.qty').forEach(input => input.value = 0);
+            document.querySelectorAll('.price').forEach(input => input.value = '');
+            document.querySelectorAll('.total').forEach(input => input.value = '');
+            calculateGrandTotal();
+        }
+    </script>
+</body>
+</html>

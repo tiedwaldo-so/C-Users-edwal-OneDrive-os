@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Geração de PDF - Elfon OS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1976D2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .checklist {
+            background: #E3F2FD;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1976D2;
+            margin-bottom: 30px;
+        }
+        
+        .checklist h2 {
+            color: #1976D2;
+            margin-bottom: 15px;
+        }
+        
+        .checklist ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+        
+        .success {
+            background: #C8E6C9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .success h3 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .example {
+            background: #FFF9C4;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #FFC107;
+            margin: 15px 0;
+        }
+        
+        .example h4 {
+            color: #F57C00;
+            margin-bottom: 10px;
+        }
+        
+        .code {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #1976D2;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: #1565C0;
+        }
+        
+        .btn-success {
+            background: #4CAF50;
+        }
+        
+        .btn-success:hover {
+            background: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Correções Aplicadas - Geração de PDF</h1>
+        
+        <div class="success">
+            <h3>🎉 Problemas Corrigidos:</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>✅ <strong>Logo agora aparece no PDF</strong> (lado esquerdo superior)</li>
+                <li>✅ <strong>Formato da data mudado</strong> para DD-MM-YYYY</li>
+            </ul>
+        </div>
+        
+        <div class="checklist">
+            <h2>📋 Checklist de Teste do PDF</h2>
+            <p><strong>Antes de gerar o PDF, siga estes passos:</strong></p>
+            <ul>
+                <li>☑️ Abra o aplicativo (<code>index.html</code>)</li>
+                <li>☑️ Preencha o nome do cliente</li>
+                <li>☑️ Preencha pelo menos um item com quantidade e valor</li>
+                <li>☑️ Verifique se a data está preenchida</li>
+                <li>☑️ Clique em "📄 Gerar PDF"</li>
+            </ul>
+        </div>
+        
+        <div class="example">
+            <h4>🔍 O que verificar no PDF gerado:</h4>
+            <ol style="margin-left: 20px; line-height: 1.8;">
+                <li><strong>Logo da Empresa:</strong> Deve aparecer no canto superior esquerdo</li>
+                <li><strong>Nome do Arquivo:</strong> Deve seguir o formato abaixo</li>
+            </ol>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #1976D2; margin: 20px 0;">
+            <h3 style="color: #1976D2; margin-bottom: 15px;">📝 Formato do Nome do Arquivo:</h3>
+            
+            <div class="code">
+                <strong>ANTES:</strong><br>
+                OS_001_NomeDoCliente_20260116.pdf<br>
+                <span style="color: #D32F2F;">(Formato: YYYYMMDD - ano, mês, dia sem separador)</span>
+            </div>
+            
+            <div class="code" style="background: #C8E6C9;">
+                <strong>DEPOIS (NOVO):</strong><br>
+                OS_001_NomeDoCliente_16-01-2026.pdf<br>
+                <span style="color: #2E7D32;">(Formato: DD-MM-YYYY - dia-mês-ano)</span>
+            </div>
+        </div>
+        
+        <div style="background: #E8F5E9; padding: 20px; border-radius: 8px; border-left: 4px solid #4CAF50; margin: 20px 0;">
+            <h3 style="color: #2E7D32; margin-bottom: 15px;">💡 Exemplos de Nomes de Arquivo:</h3>
+            
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #4CAF50; color: white;">
+                        <th style="padding: 10px; text-align: left;">OS Nº</th>
+                        <th style="padding: 10px; text-align: left;">Cliente</th>
+                        <th style="padding: 10px; text-align: left;">Data</th>
+                        <th style="padding: 10px; text-align: left;">Nome do Arquivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">001</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">João Silva</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">16/01/2026</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; font-family: monospace;">OS_001_João Silva_16-01-2026.pdf</td>
+                    </tr>
+                    <tr style="background: white;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">002</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Maria Santos</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">25/12/2025</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; font-family: monospace;">OS_002_Maria Santos_25-12-2025.pdf</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">123</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Empresa XYZ Ltda</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">05/03/2026</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; font-family: monospace;">OS_123_Empresa XYZ Ltda_05-03-2026.pdf</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="background: #FFF3E0; padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800; margin: 20px 0;">
+            <h3 style="color: #E65100; margin-bottom: 15px;">⚠️ Observações Importantes:</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>O logo pode levar 1-2 segundos para carregar no PDF (aguarde o processo)</li>
+                <li>Se o logo não aparecer, verifique se o arquivo <code>logo.jpg</code> existe na pasta</li>
+                <li>A data usa o campo "Data" do formulário</li>
+                <li>Se a data não estiver preenchida, usa a data atual automaticamente</li>
+                <li>Nome do cliente é limitado a 20 caracteres no nome do arquivo</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn btn-success">🚀 Abrir Aplicativo e Testar</a>
+            <a href="bem-vindo.html" class="btn">🏠 Voltar ao Início</a>
+        </div>
+        
+        <div style="background: #E3F2FD; padding: 20px; border-radius: 8px; margin-top: 30px; text-align: center;">
+            <h3 style="color: #1976D2; margin-bottom: 10px;">📱 Teste Completo Recomendado:</h3>
+            <ol style="text-align: left; margin-left: 40px; line-height: 1.8;">
+                <li>Preencha todos os campos do formulário</li>
+                <li>Adicione 2-3 itens com valores</li>
+                <li>Tire uma foto (opcional)</li>
+                <li>Assine (técnico e cliente)</li>
+                <li>Clique em "Gerar PDF"</li>
+                <li>Verifique:
+                    <ul style="margin-left: 20px;">
+                        <li>✓ Logo aparece no PDF?</li>
+                        <li>✓ Nome do arquivo tem data no formato DD-MM-YYYY?</li>
+                        <li>✓ Todas as informações estão no PDF?</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+INSTRUÇÕES PARA ADICIONAR O LOGO:
+
+Execute o comando abaixo no PowerShell para copiar o logo:
+
+Copy-Item "C:\Users\edwal\.verdent\artifacts\images\66423a45-657f-49ab-ada0-50bfe8ff6321\1768598671031_09a488c4.jpeg" "C:\Users\edwal\OneDrive\os\logo.png"
+
+Ou copie manualmente o arquivo de:
+C:\Users\edwal\.verdent\artifacts\images\66423a45-657f-49ab-ada0-50bfe8ff6321\1768598671031_09a488c4.jpeg
+
+Para:
+C:\Users\edwal\OneDrive\os\logo.png

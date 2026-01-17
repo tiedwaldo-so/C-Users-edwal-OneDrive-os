@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="description" content="Elfon Service - Sistema de Ordem de Serviço">
+    <title>Elfon Service - Ordem de Serviço</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <img src="logo.jpg" alt="Elfon Service" class="logo" onerror="this.src='logo.png'">
+            </div>
+            <div class="header-center">
+                <h1>Elfon Service</h1>
+                <div class="os-number-inline">
+                    <label for="osNumber">Ordem de Serviço Nº:</label>
+                    <input type="text" id="osNumber" value="001" maxlength="10">
+                </div>
+            </div>
+            <div class="header-right">
+                <p>Email: elfon@elfon.com.br</p>
+                <p>Telefone: (15) 2102-4777</p>
+                <p>Site: www.elfon.com.br</p>
+                <p>CNPJ: 62.651.123/0001-40</p>
+            </div>
+        </header>
+
+        <main class="form-content">
+            <section class="client-section">
+                <div class="form-group full-width">
+                    <label for="cliente">Cliente:</label>
+                    <input type="text" id="cliente" placeholder="Nome do Cliente">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18">
+                    </div>
+                    <div class="form-group">
+                        <label for="ie">IE:</label>
+                        <input type="text" id="ie" placeholder="Inscrição Estadual">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-3">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" placeholder="Rua, Avenida...">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" placeholder="Nº">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-2">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" placeholder="Bairro">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" placeholder="cliente@email.com">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="contatoLocal">Contato no local:</label>
+                    <input type="text" id="contatoLocal" placeholder="Nome do contato no local">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="defeitoReclamado">Defeito Reclamado:</label>
+                    <textarea id="defeitoReclamado" rows="3" placeholder="Descreva o defeito reclamado..."></textarea>
+                </div>
+            </section>
+
+            <section class="items-section">
+                <h2>Itens / Serviços</h2>
+                <div class="table-container">
+                    <table id="itemsTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qtd</th>
+                                <th>Descrição</th>
+                                <th>Valor Unit.</th>
+                                <th>Valor Total</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" id="addItemBtn" class="btn-add">+ Adicionar Item</button>
+            </section>
+
+            <section class="photos-section">
+                <h2>Fotos</h2>
+                <input type="file" id="photoInput" accept="image/*" capture="camera" multiple style="display: none;">
+                <button type="button" id="addPhotoBtn" class="btn-add">📷 Adicionar Foto</button>
+                <div id="photoGallery" class="photo-gallery"></div>
+            </section>
+
+            <section class="payment-section">
+                <div class="form-row">
+                    <div class="form-group flex-2">
+                        <label for="condicaoPagamento">Condição de Pagamento:</label>
+                        <input type="text" id="condicaoPagamento" placeholder="Ex: À vista, Parcelado...">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="valorTotal">Valor TOTAL:</label>
+                        <input type="text" id="valorTotal" readonly placeholder="R$ 0,00">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="laudoTecnico">Laudo Técnico:</label>
+                    <textarea id="laudoTecnico" rows="4" placeholder="Descreva o laudo técnico..."></textarea>
+                </div>
+            </section>
+
+            <section class="signature-section">
+                <h2>Assinaturas</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data">Data:</label>
+                        <input type="date" id="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaInicial">Hora Inicial:</label>
+                        <input type="time" id="horaInicial">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaFinal">Hora Final:</label>
+                        <input type="time" id="horaFinal">
+                    </div>
+                </div>
+
+                <div class="signatures-container">
+                    <div class="signature-box">
+                        <label>Assinatura do Técnico Responsável:</label>
+                        <canvas id="signatureTecnico" width="300" height="150"></canvas>
+                        <button type="button" class="btn-clear" onclick="clearSignature('signatureTecnico')">Limpar</button>
+                    </div>
+                    <div class="signature-box">
+                        <label>Assinatura do Cliente:</label>
+                        <canvas id="signatureCliente" width="300" height="150"></canvas>
+                        <button type="button" class="btn-clear" onclick="clearSignature('signatureCliente')">Limpar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="actions-section">
+                <button type="button" id="generatePdfBtn" class="btn-primary">📄 Gerar PDF</button>
+                <button type="button" id="clearFormBtn" class="btn-secondary">🔄 Limpar Formulário</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Bibliotecas jsPDF locais para funcionamento offline -->
+    <script src="libs/jspdf.umd.min.js"></script>
+    <script src="libs/jspdf.plugin.autotable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
